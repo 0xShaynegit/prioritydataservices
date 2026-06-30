@@ -1235,13 +1235,13 @@ a.contact__row:hover .contact__arrow { transform: translateX(6px); }
   overflow: hidden;
   background: oklch(10% 0.01 244);
 }
-.evidence__item:nth-child(1) { grid-column: span 7; }
-.evidence__item:nth-child(2) { grid-column: span 5; }
-.evidence__item:nth-child(3) { grid-column: span 4; }
-.evidence__item:nth-child(4) { grid-column: span 4; }
+.evidence__item:nth-child(1) { grid-column: span 3; height: 320px; }
+.evidence__item:nth-child(2) { grid-column: span 3; height: 320px; }
+.evidence__item:nth-child(3) { grid-column: span 3; height: 320px; }
+.evidence__item:nth-child(4) { grid-column: span 3; height: 320px; }
 .evidence__item:nth-child(5) { grid-column: span 4; }
-.evidence__item:nth-child(6) { grid-column: span 5; }
-.evidence__item:nth-child(7) { grid-column: span 7; }
+.evidence__item:nth-child(6) { grid-column: span 4; }
+.evidence__item:nth-child(7) { grid-column: span 4; }
 .evidence__item:nth-child(8) { grid-column: span 12; }
 .evidence__item img {
   display: block;
