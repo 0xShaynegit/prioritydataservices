@@ -142,6 +142,14 @@ None. Site is production-ready.
   - Labels live directly in `.compare` container, not inside `.compare__handle`
   - "Before" top-left (dark bg), "After" top-right (orange bg)
 
+## Post-Launch Fixes (30 June 2026)
+
+- Ticker `overflow: clip` added (was bleeding on mobile, causing gap at top)
+- Sticky nav explicitly re-declared inside 720px breakpoint for mobile browsers
+- Mobile nav close X button added (top-right of drawer)
+- Mobile nav hash links fixed: drawer closes first (320ms), then scrolls to target
+- Company name on mobile nav bar doubled: 0.65rem → 1.3rem
+
 ## Archive
 
 Everything archived to `_archive/` — nothing deleted. All reversible via git.
