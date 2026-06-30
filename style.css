@@ -1019,7 +1019,7 @@ a.contact__row:hover .contact__arrow { transform: translateX(6px); }
   .hamburger { display: flex; }
   .mobile-nav { display: block; }
   .masthead__nav  { display: none; }
-  .masthead__name { font-size: 1.3rem; letter-spacing: 0.04em; }
+  .masthead__name { font-size: 0.9rem; letter-spacing: 0.04em; }
   .masthead__cta { display: none; }
   .masthead { position: sticky; top: 0; }
 
