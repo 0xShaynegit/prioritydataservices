@@ -109,7 +109,21 @@
     const closeBtn = mobileNav.querySelector(".mobile-nav__close");
     if (closeBtn) closeBtn.addEventListener("click", closeNav);
 
-    mobileNav.querySelectorAll("a").forEach(a => a.addEventListener("click", closeNav));
+    mobileNav.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", (e) => {
+        const href = a.getAttribute("href");
+        if (href && href.startsWith("#")) {
+          e.preventDefault();
+          closeNav();
+          setTimeout(() => {
+            const target = document.querySelector(href);
+            if (target) target.scrollIntoView({ behavior: "smooth" });
+          }, 320);
+        } else {
+          closeNav();
+        }
+      });
+    });
   }
 
   /* ---------- desktop services dropdown ---------- */
