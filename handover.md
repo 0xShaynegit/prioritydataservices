@@ -148,7 +148,15 @@ None. Site is production-ready.
 - Sticky nav explicitly re-declared inside 720px breakpoint for mobile browsers
 - Mobile nav close X button added (top-right of drawer)
 - Mobile nav hash links fixed: drawer closes first (320ms), then scrolls to target
-- Company name on mobile nav bar doubled: 0.65rem → 1.3rem
+- Company name: 1.8rem desktop, 1rem mobile (was 0.9rem both)
+- Close X button propagated to all 12 pages
+- about__giant word added to 4 pages that were missing it:
+  - office-equipment-cleaning: "Clean"
+  - electrical-electronic-equipment-cleaning: "Safe" (was "ESD" — nobody knows what that means)
+  - internal-equipment-decontamination: "HEPA"
+  - equipment-and-products: "Tools"
+
+**LIVE** — https://www.prioritydataservices.com.au (deployed 30 June 2026)
 
 ## Archive
 
@@ -156,4 +164,4 @@ Everything archived to `_archive/` — nothing deleted. All reversible via git.
 
 ---
 
-**Ready to ship. Awaiting Cloudflare Pages deployment.**
+**Live and in post-launch polish.**
