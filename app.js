@@ -83,6 +83,47 @@
     counters.forEach(runCounter);
   }
 
+  /* ---------- hamburger + mobile nav ---------- */
+  const hamburger = document.querySelector(".hamburger");
+  const mobileNav = document.querySelector(".mobile-nav");
+
+  if (hamburger && mobileNav) {
+    hamburger.addEventListener("click", () => {
+      const open = hamburger.classList.toggle("is-open");
+      mobileNav.classList.toggle("is-open", open);
+      hamburger.setAttribute("aria-expanded", open);
+      mobileNav.setAttribute("aria-hidden", !open);
+      document.body.style.overflow = open ? "hidden" : "";
+    });
+
+    mobileNav.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        hamburger.classList.remove("is-open");
+        mobileNav.classList.remove("is-open");
+        hamburger.setAttribute("aria-expanded", "false");
+        mobileNav.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      });
+    });
+  }
+
+  /* ---------- desktop services dropdown ---------- */
+  const dropdownTriggers = document.querySelectorAll(".nav-dropdown__trigger");
+  dropdownTriggers.forEach(trigger => {
+    const item = trigger.closest(".nav-item--dropdown");
+    trigger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      item.classList.toggle("is-open");
+      trigger.setAttribute("aria-expanded", item.classList.contains("is-open"));
+    });
+  });
+  document.addEventListener("click", () => {
+    document.querySelectorAll(".nav-item--dropdown.is-open").forEach(el => {
+      el.classList.remove("is-open");
+      el.querySelector(".nav-dropdown__trigger").setAttribute("aria-expanded", "false");
+    });
+  });
+
   /* ---------- before/after comparison sliders ---------- */
   document.querySelectorAll("[data-compare]").forEach((el) => {
     const beforeImg = el.querySelector(".compare__img--before");
