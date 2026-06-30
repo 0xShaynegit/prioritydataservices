@@ -220,7 +220,7 @@ h1, h2, h3 { line-height: 1.1; }
 .ticker {
   background: var(--ink);
   color: var(--paper);
-  overflow: hidden;
+  overflow: clip;
   white-space: nowrap;
   border-bottom: 1.5px solid oklch(28% 0.02 244);
   position: sticky;
