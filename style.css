@@ -223,9 +223,6 @@ h1, h2, h3 { line-height: 1.1; }
   overflow: clip;
   white-space: nowrap;
   border-bottom: 1.5px solid oklch(28% 0.02 244);
-  position: sticky;
-  top: 0;
-  z-index: 100;
 }
 .ticker__track {
   display: inline-flex;
@@ -250,7 +247,7 @@ h1, h2, h3 { line-height: 1.1; }
   border-bottom: var(--rule);
   background: var(--paper);
   position: sticky;
-  top: 2.3rem;
+  top: 0;
   z-index: 90;
 }
 .masthead__brand {
