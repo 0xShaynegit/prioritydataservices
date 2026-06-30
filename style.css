@@ -1288,7 +1288,7 @@ a.contact__row:hover .contact__arrow { transform: translateX(6px); }
 }
 .evidence__item--portrait img {
   width: auto;
-  max-height: 320px;
+  max-height: 560px;
 }
 .evidence__item--product {
   display: flex;
