@@ -564,13 +564,17 @@ h1, h2, h3 { line-height: 1.1; }
 .service--link {
   text-decoration: none;
   color: inherit;
-  cursor: none;
+  cursor: pointer;
   transition: background 200ms;
+}
+@media (hover: hover) {
+  .service--link { cursor: none; }
 }
 .service--link:hover { background: oklch(96% 0.004 244); }
 .service--flip.service--link:hover { background: oklch(93% 0.006 244); }
 
 /* --- Cursor label --- */
+@media (hover: none) { .cursor-label { display: none; } }
 .cursor-label {
   position: fixed;
   pointer-events: none;
