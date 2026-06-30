@@ -317,7 +317,7 @@ h1, h2, h3 { line-height: 1.1; }
   text-transform: none; letter-spacing: normal;
   transition: background 150ms;
 }
-.nav-dropdown__menu li a:hover { background: var(--navy); }
+.nav-dropdown__menu li a:hover { background: var(--navy); color: var(--paper); }
 .nav-item--dropdown:hover .nav-dropdown__menu,
 .nav-item--dropdown.is-open .nav-dropdown__menu { display: block; }
 
