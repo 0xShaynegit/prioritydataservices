@@ -1281,6 +1281,7 @@ a.contact__row:hover .contact__arrow { transform: translateX(6px); }
   pointer-events: none;
 }
 @media (max-width: 720px) {
-  .evidence__item { grid-column: span 12 !important; }
+  .evidence__grid { grid-template-columns: 1fr; }
+  .evidence__item { grid-column: span 1 !important; }
   .compare-grid { grid-template-columns: 1fr; }
 }
