@@ -150,4 +150,22 @@
     el.addEventListener("touchend", () => { dragging = false; });
   });
 
+  /* ---------- cursor label ---------- */
+  const cursorLabel = document.getElementById("cursor-label");
+  if (cursorLabel) {
+    document.querySelectorAll("[data-cursor-label]").forEach(el => {
+      el.addEventListener("mouseenter", () => {
+        cursorLabel.textContent = el.dataset.cursorLabel;
+        cursorLabel.classList.add("is-visible");
+      });
+      el.addEventListener("mousemove", e => {
+        cursorLabel.style.left = e.clientX + "px";
+        cursorLabel.style.top = e.clientY + "px";
+      });
+      el.addEventListener("mouseleave", () => {
+        cursorLabel.classList.remove("is-visible");
+      });
+    });
+  }
+
 })();

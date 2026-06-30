@@ -561,6 +561,37 @@ h1, h2, h3 { line-height: 1.1; }
 }
 .service--flip { background: var(--paper-2); }
 .service:last-of-type { border-bottom: none; }
+.service--link {
+  text-decoration: none;
+  color: inherit;
+  cursor: none;
+  transition: background 200ms;
+}
+.service--link:hover { background: oklch(96% 0.004 244); }
+.service--flip.service--link:hover { background: oklch(93% 0.006 244); }
+
+/* --- Cursor label --- */
+.cursor-label {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.45em 0.9em;
+  opacity: 0;
+  transform: translate(-50%, -140%) scale(0.85);
+  transition: opacity 180ms, transform 180ms;
+  white-space: nowrap;
+}
+.cursor-label.is-visible {
+  opacity: 1;
+  transform: translate(-50%, -140%) scale(1);
+}
 
 .service__no {
   font-family: var(--font-display);
