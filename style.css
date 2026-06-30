@@ -1280,6 +1280,16 @@ a.contact__row:hover .contact__arrow { transform: translateX(6px); }
   backdrop-filter: blur(4px);
   pointer-events: none;
 }
+.evidence__item--portrait {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: oklch(8% 0.01 244);
+}
+.evidence__item--portrait img {
+  width: auto;
+  max-height: 280px;
+}
 @media (max-width: 720px) {
   .evidence__grid { grid-template-columns: 1fr; }
   .evidence__item { grid-column: span 1 !important; }
