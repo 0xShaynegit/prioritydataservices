@@ -225,7 +225,7 @@ h1, h2, h3 { line-height: 1.1; }
   border-bottom: 1.5px solid oklch(28% 0.02 244);
   position: sticky;
   top: 0;
-  z-index: 95;
+  z-index: 100;
 }
 .ticker__track {
   display: inline-flex;
@@ -343,7 +343,7 @@ h1, h2, h3 { line-height: 1.1; }
   display: none;
   position: fixed; top: 2.3rem; right: 0; bottom: 0; left: 0;
   background: var(--ink); color: var(--paper);
-  z-index: 100; overflow-y: auto;
+  z-index: 99; overflow-y: auto;
   padding: 1rem var(--gutter) var(--gutter);
   transform: translateX(100%);
   transition: transform 300ms var(--ease-out);
