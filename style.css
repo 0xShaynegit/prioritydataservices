@@ -350,6 +350,12 @@ h1, h2, h3 { line-height: 1.1; }
   transition: transform 300ms var(--ease-out);
 }
 .mobile-nav.is-open { transform: translateX(0); }
+.mobile-nav__close {
+  position: absolute; top: 1.25rem; right: var(--gutter);
+  background: none; border: none; cursor: pointer;
+  color: var(--paper); font-size: 2rem; line-height: 1;
+  padding: 0.25rem 0.5rem;
+}
 .mobile-nav nav {
   display: flex; flex-direction: column; gap: 0;
 }

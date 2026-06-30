@@ -98,15 +98,18 @@
       document.body.style.overflow = open ? "hidden" : "";
     });
 
-    mobileNav.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => {
-        hamburger.classList.remove("is-open");
-        mobileNav.classList.remove("is-open");
-        hamburger.setAttribute("aria-expanded", "false");
-        mobileNav.setAttribute("aria-hidden", "true");
-        document.body.style.overflow = "";
-      });
-    });
+    const closeNav = () => {
+      hamburger.classList.remove("is-open");
+      mobileNav.classList.remove("is-open");
+      hamburger.setAttribute("aria-expanded", "false");
+      mobileNav.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    };
+
+    const closeBtn = mobileNav.querySelector(".mobile-nav__close");
+    if (closeBtn) closeBtn.addEventListener("click", closeNav);
+
+    mobileNav.querySelectorAll("a").forEach(a => a.addEventListener("click", closeNav));
   }
 
   /* ---------- desktop services dropdown ---------- */
