@@ -142,6 +142,27 @@ None. Site is production-ready.
   - Labels live directly in `.compare` container, not inside `.compare__handle`
   - "Before" top-left (dark bg), "After" top-right (orange bg)
 
+## Session Fixes (01 July 2026)
+
+**Evidence Grid (equipment-and-products.html)**
+- Slots 08, 09, 10 removed (ESD footstrap, colour-coded cloth, microfibre vs cotton — too small for dark grid)
+- Grid reordered to 4-up top row: 01 HEPA vacuum, 02 suction cup, 03 wand, 04 sticky mat
+- Bottom row: 05 microfibre pad, 06 microfibre cloth, 07 antistatic solution
+- Top row: 4 equal columns (span 3 each), 320px container height
+- Top row photos: `style="height:320px;width:auto"` inline on each `<img>` (page-specific, not in stylesheet)
+- All items use `evidence__item--portrait` class (flex centred, dark bg) for product-on-white shots
+- Numbers renumbered 01–07 sequentially to match new order
+
+**FAQ**
+- Added FAQ sections to 7 pages that were missing them: data-centre-decontamination, zinc-whisker-remediation, post-construction-decontamination, ceiling-void-cleaning, technical-restoration, commercial-kitchen-remediation, audits-reports
+- All 12 pages now have FAQ sections
+- 4–5 questions per page, technically specific to each service
+- FAQ style: plain accordion, no numbering
+
+**Last commit:** 0da8620
+
+---
+
 ## Post-Launch Fixes (30 June 2026)
 
 - Ticker `overflow: clip` added (was bleeding on mobile, causing gap at top)
