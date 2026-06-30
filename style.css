@@ -225,7 +225,7 @@ h1, h2, h3 { line-height: 1.1; }
   border-bottom: 1.5px solid oklch(28% 0.02 244);
   position: sticky;
   top: 0;
-  z-index: 70;
+  z-index: 95;
 }
 .ticker__track {
   display: inline-flex;
