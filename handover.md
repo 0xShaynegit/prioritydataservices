@@ -136,8 +136,11 @@ None. Site is production-ready.
 - Dropdown fixed: gap removed, hover stays live, text visible on hover
 - All 7 service cards converted to full-width clickable links
 - Cursor label added (desktop only, touch hidden)
-- 3 new before/after sliders added to homepage gallery
+- 3 new before/after sliders added to homepage gallery (motherboard, fire damage, TV)
 - Company name visible on mobile nav bar (not in drawer)
+- Before/After labels pinned to top corners of each slider — not connected to drag handle
+  - Labels live directly in `.compare` container, not inside `.compare__handle`
+  - "Before" top-left (dark bg), "After" top-right (orange bg)
 
 ## Archive
 
