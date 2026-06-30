@@ -1,28 +1,31 @@
 # Priority Data Services — Handover
 
 **Date:** 30 June 2026  
-**Status:** Build complete. All 12 pages shipped. GitHub pushed. Awaiting Cloudflare Pages deployment.
+**Status:** Build complete. Polish session done. GitHub pushed. Awaiting Cloudflare Pages deployment.
 
 ## What's Done
 
 ✓ 12-page website (all in root directory)  
 ✓ Vanilla HTML/CSS/JS (zero frameworks)  
-✓ Desktop + mobile navigation (hamburger at 720px, services dropdown)  
+✓ Desktop sticky nav + mobile hamburger (720px breakpoint)  
+✓ Services dropdown on desktop (hover, z-index 300, overflow visible)  
+✓ Company name visible on mobile nav bar  
 ✓ Premium galleries (clip-path comparison sliders, editorial grids)  
+✓ 6 before/after comparison sliders on homepage  
+✓ All 7 service cards fully clickable with cursor label on desktop  
 ✓ All images WebP, semantic naming, natural aspect ratios  
 ✓ Local WOFF2 fonts (Archivo + Instrument Serif)  
 ✓ SEO complete (titles, descriptions, OG images, schema, internal linking)  
 ✓ Favicon suite (transparent, iOS icon)  
 ✓ Animations (RAF ticker, stamp rotation, scroll reveals, stat counters)  
 ✓ sitemap.xml + robots.txt  
-✓ .gitignore set up  
-✓ GitHub repo pushed (main branch, all commits signed)  
+✓ GitHub repo pushed (main branch)  
 
 ## Repo
 
 **GitHub:** https://github.com/0xShaynegit/prioritydataservices  
 **Branch:** main  
-**Last commit:** f866d08 — Add full mobile navigation: hamburger menu + services dropdown + all 12 pages
+**Last commit:** 382a9ee — Replace switch with dusty-pc before/after
 
 ## Files
 
@@ -40,60 +43,74 @@ C:\1myguy\projects\PriorityDataServices/
 ├── office-equipment-cleaning.html
 ├── commercial-kitchen-remediation.html
 ├── equipment-and-products.html
-├── style.css                                   (22.5KB+, all responsive)
-├── app.js                                      (hamburger, ticker, galleries, reveals)
-├── sitemap.xml                                 (12 pages, priorities 0.6-1.0)
-├── robots.txt                                  (allow all)
+├── style.css
+├── app.js
+├── sitemap.xml
+├── robots.txt
 ├── .gitignore
 ├── fonts/
 │   ├── Archivo-Regular.woff2
 │   ├── Archivo-Black.woff2
 │   ├── InstrumentSerif-Regular.woff2
 │   └── InstrumentSerif-Italic.woff2
-├── images/
-│   ├── favicon.ico
-│   ├── favicon.png
-│   ├── apple-touch-icon.png
-│   ├── priority-data-services-favicon.webp
-│   ├── priority-data-services-og-share.webp
-│   └── [63+ WebP images, semantic named]
-├── .md/                                        (archived, .gitignore'd)
-└── _archive/                                   (archived, .gitignore'd)
+└── images/
+    ├── favicon.ico, favicon.png, apple-touch-icon.png
+    ├── priority-data-services-og-share.webp
+    └── [65+ WebP images, semantic named]
 ```
 
 ## Key Patterns
 
+**Sticky Nav**
+- Ticker is static (first element in body, scrolls away)
+- Masthead: `position: sticky; top: 0; z-index: 90; overflow: visible`
+- overflow-x: clip is on `.hero` only — NOT on html or body (kills sticky)
+- Ticker must NOT wrap masthead in DOM or overflow:clip breaks sticky
+
+**Dropdown**
+- Opens on hover: `.nav-item--dropdown:hover .nav-dropdown__menu`
+- `top: 100%` flush (no gap) + `padding-top: 0.75rem` inside menu keeps hover live
+- `z-index: 300` to clear masthead (z:90) and mobile nav (z:99)
+- Dropdown link hover must explicitly set `color: var(--paper)` — parent `.masthead__nav a:hover` sets navy which bleeds in
+
 **Mobile Navigation**
-- Hamburger visible below 720px
-- Slide drawer from right (transform: translateX)
-- Auto-closes on link tap
-- Desktop: Services dropdown, click-outside close
+- Hamburger visible below 720px, company name stays on nav bar
+- Drawer: `position: fixed; inset: 0; z-index: 99; padding: 6rem`
+- Auto-closes on link tap, body overflow hidden when open
 
-**Images**
-- All WebP format
-- Semantic naming: `priority-data-services-[descriptor].webp`
-- Natural aspect ratios (height: auto, no aspect-ratio constraint)
-- Comparison sliders use clip-path (no cropping, pixel-perfect)
+**Ticker**
+- RAF loop: 0.18px/ms desktop, 0.12px/ms mobile (detected at 720px)
+- Static in DOM (no sticky/fixed), scrolls away naturally
+- Must be sibling of masthead, NOT parent — nesting it breaks sticky
 
-**Animations**
-- Ticker: RAF loop at 0.18px/ms, real scrollWidth measurement, wraps at halfway
-- Stamp: SVG animateTransform (55s rotation), not CSS transform-origin
-- Reveals: IntersectionObserver (threshold 0.12, -4% bottom margin)
-- Counters: easeOutQuart, 1.4s duration
+**Clickable Service Cards**
+- All 7 service cards are `<a>` tags with class `service--link`
+- `cursor: none` on hover-capable devices only (`@media (hover: hover)`)
+- Cursor label: fixed div, follows mousemove, fades in/out
+- `@media (hover: none)` hides cursor label on touch/mobile
+- No nested `<a>` inside service titles (invalid HTML)
+
+**Before/After Gallery (homepage)**
+- 6 sliders: network switch, workstation, power supply, motherboard, fire damage, dusty PC
+- clip-path: `inset(0 X% 0 0)` on before image, JS drag updates X
+- Natural image dimensions, no forced aspect-ratio
 
 **CSS**
 - OKLCH colour space (custom properties in :root)
-- overflow: clip on .ticker (not hidden, doesn't block transforms)
-- Responsive: 920px → 720px → 560px breakpoints
-- BEM naming (e.g., .nav-item--dropdown, .mobile-nav__heading)
+- Responsive: 920px, 720px, 560px breakpoints
+- `@media (hover: none)` for touch-only states
 
-**SEO**
-- All titles 50-60 chars (no truncation in SERP)
-- All descriptions 150-155 chars (fully visible)
-- OG image same on all 12 pages (1200x630 branded WebP)
-- Internal links on 7 service cards → 7 service pages
-- LocalBusiness + Service schema markup
-- sitemap priorities: 1.0 (home), 0.8 (audits + top 2 services), 0.7 (mid services), 0.6 (low services)
+## Service Card Map (homepage #04 fixed)
+
+| No | Title | Page |
+|----|-------|------|
+| 01 | Data Centre Decontamination | data-centre-decontamination.html |
+| 02 | Zinc Whisker Remediation | zinc-whisker-remediation.html |
+| 03 | Post-Construction Decontamination | post-construction-decontamination.html |
+| 04 | Electrical & Electronic Equipment | electrical-electronic-equipment-cleaning.html |
+| 05 | Ceiling Void Cleaning | ceiling-void-cleaning.html |
+| 06 | Technical Restoration | technical-restoration.html |
+| 07 | Commercial Kitchen Remediation | commercial-kitchen-remediation.html |
 
 ## Next Steps
 
@@ -110,28 +127,22 @@ C:\1myguy\projects\PriorityDataServices/
 
 None. Site is production-ready.
 
-## Recent Fixes
+## Session Fixes (30 June 2026)
 
-- **Ticker animation:** Changed `overflow: hidden` to `overflow: clip` to prevent transform blocking
-- **Mobile nav:** Added hamburger menu, all 12 pages now accessible from nav on both desktop and mobile
-- **OG images:** Updated all 12 pages to use new branded OG share image
-- **Favicon:** Added transparent background versions (png, ico, webp) + iOS icon
-- **SEO:** Shortened all titles (removed "| Brisbane, QLD"), trimmed descriptions to 150-155 chars
+- Service #04 replaced (was duplicate Technical Restoration link)
+- Hero title reduced 10% across all breakpoints
+- Ticker moved to absolute top of DOM on all 12 pages
+- Sticky nav fixed: overflow-x:clip removed from html/body
+- Dropdown fixed: gap removed, hover stays live, text visible on hover
+- All 7 service cards converted to full-width clickable links
+- Cursor label added (desktop only, touch hidden)
+- 3 new before/after sliders added to homepage gallery
+- Company name visible on mobile nav bar (not in drawer)
 
 ## Archive
 
-Everything archived to `_archive/` during build:
-- Original backup images (JPG)
-- Old nav/gallery markup
-- Design docs and planning files
-
-Nothing deleted. Everything reversible via git.
-
-## Questions?
-
-See `rules.md` for project-level decisions.  
-See memory at `~/.claude/projects/C--1myguy/memory/priority_data_services_learnings.md` for technical patterns.
+Everything archived to `_archive/` — nothing deleted. All reversible via git.
 
 ---
 
-**Ready to ship. Awaiting user confirmation to deploy on Cloudflare Pages.**
+**Ready to ship. Awaiting Cloudflare Pages deployment.**
