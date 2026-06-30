@@ -865,18 +865,6 @@ h1, h2, h3 { line-height: 1.1; }
   margin-inline: auto;
   padding-inline: var(--gutter);
   padding-bottom: var(--space-xl);
-  counter-reset: faq;
-}
-.faq__item { counter-increment: faq; }
-.faq__item summary::before {
-  content: counter(faq, decimal-leading-zero);
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--alert);
-  min-width: 2rem;
-  flex-shrink: 0;
-  margin-top: 0.2em;
 }
 .faq__item {
   border-top: var(--rule);
