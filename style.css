@@ -1166,6 +1166,7 @@ a.contact__row:hover .contact__arrow { transform: translateX(6px); }
   padding: 0.3em 0.7em;
   pointer-events: none;
   white-space: nowrap;
+  z-index: 10;
 }
 .compare__label--before {
   left: 1rem;
