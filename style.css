@@ -295,27 +295,38 @@ h1, h2, h3 { line-height: 1.1; }
   background: none; border: none; cursor: pointer;
   font: inherit; font-size: 0.8rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.1em;
-  color: var(--ink-soft); padding: 0.25rem 0;
+  color: var(--ink-soft); padding: 0;
   display: flex; align-items: center; gap: 0.3rem;
+  line-height: 1;
   transition: color var(--dur-fast);
 }
 .nav-dropdown__trigger:hover { color: var(--navy); }
 .nav-dropdown__menu {
   display: none;
-  position: absolute; top: calc(100% + 0.5rem); left: 0;
-  background: var(--ink); color: var(--paper);
-  list-style: none; padding: 0.5rem 0; margin: 0;
+  position: absolute; top: 100%; left: 0;
+  padding-top: 0.75rem;
+  background: transparent;
+  list-style: none; margin: 0;
   min-width: 260px; z-index: 200;
+}
+.nav-dropdown__menu::before {
+  content: '';
+  display: block;
+  background: var(--ink);
+  position: absolute; top: 0.75rem; left: 0; right: 0; bottom: 0;
   box-shadow: 0 8px 24px rgba(0,0,0,0.25);
 }
+.nav-dropdown__menu li { position: relative; }
 .nav-dropdown__menu li a {
   display: block; padding: 0.6rem 1.2rem;
   color: var(--paper); text-decoration: none;
   font-size: 0.82rem; font-weight: 600;
   text-transform: none; letter-spacing: normal;
+  position: relative; z-index: 1;
   transition: background 150ms;
 }
 .nav-dropdown__menu li a:hover { background: var(--navy); }
+.nav-item--dropdown:hover .nav-dropdown__menu,
 .nav-item--dropdown.is-open .nav-dropdown__menu { display: block; }
 
 /* --- Hamburger button --- */
