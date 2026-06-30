@@ -220,6 +220,7 @@ h1, h2, h3 { line-height: 1.1; }
   color: var(--paper);
   white-space: nowrap;
   border-bottom: 1.5px solid oklch(28% 0.02 244);
+  overflow: clip;
 }
 .ticker__track {
   display: inline-flex;
@@ -1014,6 +1015,7 @@ a.contact__row:hover .contact__arrow { transform: translateX(6px); }
   .masthead__nav  { display: none; }
   .masthead__name { font-size: 0.65rem; letter-spacing: 0.04em; }
   .masthead__cta { display: none; }
+  .masthead { position: sticky; top: 0; }
 
   .hero {
     grid-template-columns: 1fr;
