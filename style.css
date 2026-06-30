@@ -1288,7 +1288,17 @@ a.contact__row:hover .contact__arrow { transform: translateX(6px); }
 }
 .evidence__item--portrait img {
   width: auto;
-  max-height: 280px;
+  max-height: 560px;
+}
+.evidence__item--product {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: oklch(8% 0.01 244);
+}
+.evidence__item--product img {
+  width: auto;
+  max-height: 320px;
 }
 @media (max-width: 720px) {
   .evidence__grid { grid-template-columns: 1fr; }
