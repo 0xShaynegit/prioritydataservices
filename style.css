@@ -1280,42 +1280,7 @@ a.contact__row:hover .contact__arrow { transform: translateX(6px); }
   backdrop-filter: blur(4px);
   pointer-events: none;
 }
-.products-grid {
-  padding-block: var(--section-gap);
-  background: oklch(5% 0.01 244);
-}
-.products-grid .section-head {
-  padding-inline: var(--gutter);
-  max-width: var(--max-w);
-  margin-inline: auto;
-}
-.products-grid .section-head h2 { color: var(--paper); }
-.products-grid .section-head p { color: oklch(60% 0.02 244); }
-.products-grid__items {
-  columns: 3;
-  column-gap: 4px;
-  margin-top: 3rem;
-}
-.products-grid__item {
-  break-inside: avoid;
-  margin: 0 0 4px;
-  background: oklch(5% 0.01 244);
-}
-.products-grid__item img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.products-grid__item figcaption {
-  padding: 0.5rem 0.75rem;
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: oklch(60% 0.02 244);
-}
 @media (max-width: 720px) {
   .evidence__item { grid-column: span 12 !important; }
   .compare-grid { grid-template-columns: 1fr; }
-  .products-grid__items { columns: 2; }
 }
