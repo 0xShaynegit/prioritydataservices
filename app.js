@@ -1,8 +1,30 @@
-/* Modern Lending   native JS only: scroll reveals, stat counters, calculator */
+﻿/* Priority Data Services - native JS only: scroll reveals, stat counters */
 (() => {
   "use strict";
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- ticker ---------- */
+  const tickerTrack = document.querySelector(".ticker__track");
+  if (tickerTrack) {
+    if (reducedMotion) {
+      tickerTrack.style.overflow = "hidden";
+    } else {
+      // Clone once for seamless loop, then measure actual rendered width
+      tickerTrack.innerHTML += tickerTrack.innerHTML;
+      let pos = 0;
+      let lastTs = null;
+      const loop = (ts) => {
+        const half = tickerTrack.scrollWidth / 2;
+        if (lastTs !== null) pos += (ts - lastTs) * 0.18; // px per ms (~18px/s)
+        if (pos >= half) pos -= half;
+        tickerTrack.style.transform = `translateX(${-pos}px)`;
+        lastTs = ts;
+        requestAnimationFrame(loop);
+      };
+      requestAnimationFrame(loop);
+    }
+  }
 
   /* ---------- scroll reveal ---------- */
   const revealEls = document.querySelectorAll(".reveal");
@@ -18,7 +40,7 @@
           }
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -5% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -4% 0px" }
     );
     revealEls.forEach((el) => io.observe(el));
   }
@@ -33,7 +55,7 @@
       el.textContent = prefix + target + suffix;
       return;
     }
-    const duration = 1200;
+    const duration = 1400;
     const start = performance.now();
     const tick = (now) => {
       const p = Math.min((now - start) / duration, 1);
@@ -43,6 +65,7 @@
     };
     requestAnimationFrame(tick);
   };
+
   if ("IntersectionObserver" in window && !reducedMotion) {
     const statIo = new IntersectionObserver(
       (entries) => {
@@ -60,44 +83,28 @@
     counters.forEach(runCounter);
   }
 
-  /* ---------- repayment calculator ---------- */
-  const amount = document.getElementById("amount");
-  const rate = document.getElementById("rate");
-  const term = document.getElementById("term");
-  const amountOut = document.getElementById("amount-out");
-  const rateOut = document.getElementById("rate-out");
-  const termOut = document.getElementById("term-out");
-  const repaymentOut = document.getElementById("repayment");
+  /* ---------- before/after comparison sliders ---------- */
+  document.querySelectorAll("[data-compare]").forEach((el) => {
+    const beforeImg = el.querySelector(".compare__img--before");
+    const handle = el.querySelector(".compare__handle");
+    if (!beforeImg || !handle) return;
 
-  if (amount && rate && term && repaymentOut) {
-    const aud = new Intl.NumberFormat("en-AU", {
-      style: "currency",
-      currency: "AUD",
-      maximumFractionDigits: 0,
-    });
-
-    const update = () => {
-      const principal = Number(amount.value);
-      const annualRate = Number(rate.value);
-      const years = Number(term.value);
-
-      amountOut.textContent = aud.format(principal);
-      rateOut.textContent = annualRate.toFixed(2) + "% p.a.";
-      termOut.textContent = years + " years";
-
-      const r = annualRate / 100 / 12;
-      const n = years * 12;
-      const monthly =
-        r === 0
-          ? principal / n
-          : (principal * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-
-      repaymentOut.textContent = aud.format(Math.round(monthly));
+    const setPos = (x) => {
+      const rect = el.getBoundingClientRect();
+      const pct = Math.min(Math.max((x - rect.left) / rect.width, 0.05), 0.95);
+      const clipRight = (1 - pct) * 100;
+      beforeImg.style.clipPath = `inset(0 ${clipRight}% 0 0)`;
+      handle.style.left = pct * 100 + "%";
     };
 
-    [amount, rate, term].forEach((input) =>
-      input.addEventListener("input", update)
-    );
-    update();
-  }
+    let dragging = false;
+    el.addEventListener("mousedown", (e) => { dragging = true; setPos(e.clientX); });
+    window.addEventListener("mousemove", (e) => { if (dragging) setPos(e.clientX); });
+    window.addEventListener("mouseup", () => { dragging = false; });
+
+    el.addEventListener("touchstart", (e) => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
+    el.addEventListener("touchmove", (e) => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+    el.addEventListener("touchend", () => { dragging = false; });
+  });
+
 })();
