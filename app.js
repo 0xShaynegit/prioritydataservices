@@ -15,7 +15,7 @@
       let pos = 0;
       let lastTs = null;
       const isMobile = window.innerWidth <= 720;
-      const speed = isMobile ? 0.12 : 0.18; // px per ms (18px/s desktop, 12px/s mobile)
+      const speed = isMobile ? 0.12 : 0.04; // px per ms — desktop: ~40px/s (slow crawl), mobile: ~120px/s
       const loop = (ts) => {
         const half = tickerTrack.scrollWidth / 2;
         if (lastTs !== null) pos += (ts - lastTs) * speed;
