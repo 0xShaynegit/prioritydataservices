@@ -7,25 +7,21 @@
   /* ---------- ticker ---------- */
   const tickerTrack = document.querySelector(".ticker__track");
   if (tickerTrack) {
-    if (reducedMotion) {
-      tickerTrack.style.overflow = "hidden";
-    } else {
-      // Clone once for seamless loop, then measure actual rendered width
-      tickerTrack.innerHTML += tickerTrack.innerHTML;
-      let pos = 0;
-      let lastTs = null;
-      const isMobile = window.innerWidth <= 720;
-      const speed = isMobile ? 0.12 : 0.04; // px per ms — desktop: ~40px/s (slow crawl), mobile: ~120px/s
-      const loop = (ts) => {
-        const half = tickerTrack.scrollWidth / 2;
-        if (lastTs !== null) pos += (ts - lastTs) * speed;
-        if (pos >= half) pos -= half;
-        tickerTrack.style.transform = `translateX(${-pos}px)`;
-        lastTs = ts;
-        requestAnimationFrame(loop);
-      };
+    // Clone once for seamless loop, then measure actual rendered width
+    tickerTrack.innerHTML += tickerTrack.innerHTML;
+    let pos = 0;
+    let lastTs = null;
+    const isMobile = window.innerWidth <= 720;
+    const speed = isMobile ? 0.12 : 0.04; // px per ms — desktop: ~40px/s (slow crawl), mobile: ~120px/s
+    const loop = (ts) => {
+      const half = tickerTrack.scrollWidth / 2;
+      if (lastTs !== null) pos += (ts - lastTs) * speed;
+      if (half > 0 && pos >= half) pos -= half;
+      tickerTrack.style.transform = `translateX(${-pos}px)`;
+      lastTs = ts;
       requestAnimationFrame(loop);
-    }
+    };
+    requestAnimationFrame(loop);
   }
 
   /* ---------- scroll reveal ---------- */

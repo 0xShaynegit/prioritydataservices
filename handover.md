@@ -161,6 +161,13 @@ None. Site is production-ready.
 
 **Last commit:** 0da8620
 
+## Session Fixes (01 July 2026, AI SEO pass)
+
+- FAQPage JSON-LD schema added to all 12 pages (index.html + 11 service pages), matching each page's existing on-page FAQ content
+- Schema inserted in `<head>`, immediately after existing Service/LocalBusiness/WebPage schema, before Cloudflare Web Analytics
+- `llms.txt` added at site root — AI-agent context file summarising the business, all 11 service pages, and contact details
+- robots.txt checked: already permissive (`Allow: /`), no AI bot blocking, no changes needed
+
 ---
 
 ## Post-Launch Fixes (30 June 2026)

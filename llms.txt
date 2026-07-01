@@ -1,0 +1,25 @@
+# Priority Data Services
+
+> Data centre and technical equipment decontamination specialist based in Brisbane, servicing clients nationally across Australia. 10+ years experience working with government, enterprise, and telco clients.
+
+Priority Data Services provides specialist HEPA-grade cleaning and decontamination for data centres, server rooms, and sensitive electrical/electronic equipment. Core capability is zinc whisker remediation and particulate control in live environments where standard cleaning cannot be used — work is performed without requiring equipment to be taken offline where possible, with particle count testing and written reports supplied on completion.
+
+## Services
+
+- [Data Centre Decontamination](https://www.prioritydataservices.com.au/data-centre-decontamination.html): HEPA-grade cleaning of live data centre environments.
+- [Zinc Whisker Remediation](https://www.prioritydataservices.com.au/zinc-whisker-remediation.html): Identification and removal of zinc whiskers from raised floor tiles and equipment before they cause hardware failure.
+- [Post-Construction Decontamination](https://www.prioritydataservices.com.au/post-construction-decontamination.html): Cleanup of dust and construction contaminants before data centre commissioning.
+- [Ceiling Void Cleaning](https://www.prioritydataservices.com.au/ceiling-void-cleaning.html): Cleaning of ceiling voids and plenum spaces above data centre and server environments.
+- [Technical Restoration](https://www.prioritydataservices.com.au/technical-restoration.html): Restoration of equipment after fire, flood, or other incident, including fire suppression agent residue.
+- [Internal Equipment Decontamination](https://www.prioritydataservices.com.au/internal-equipment-decontamination.html): Cleaning inside servers, racks, and IT hardware without compressed air.
+- [Electrical & Electronic Equipment Cleaning](https://www.prioritydataservices.com.au/electrical-electronic-equipment-cleaning.html): ESD-safe cleaning for electrical and electronic equipment.
+- [Office Equipment Cleaning](https://www.prioritydataservices.com.au/office-equipment-cleaning.html): Cleaning of workstations, monitors, and office electronics at scale.
+- [Commercial Kitchen Remediation](https://www.prioritydataservices.com.au/commercial-kitchen-remediation.html): Deep remediation of commercial kitchen exhaust and equipment.
+- [Audits & Reports](https://www.prioritydataservices.com.au/audits-reports.html): Particle count audits and compliance reporting for data centre environments.
+- [Equipment & Products](https://www.prioritydataservices.com.au/equipment-and-products.html): HEPA vacuums, antistatic solutions, and cleaning products used and sold.
+
+## Contact
+
+- Phone: +61 411 778 952
+- Email: info@prioritydataservices.com.au
+- Coverage: Brisbane-based, national service availability
